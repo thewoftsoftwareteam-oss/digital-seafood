@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Kantumruy Pro', 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* Custom solid scrollbar for horizontal categories */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Crisp solid border utilities */
+.border-solid-grill {
+  border: 1px solid #373742;
+}
+
+.border-solid-accent {
+  border: 1px solid #ea580c;
+}
+
+.border-solid-amber {
+  border: 1px solid #d97706;
+}
