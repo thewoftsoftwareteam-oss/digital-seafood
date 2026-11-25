@@ -82,13 +82,18 @@ npm run dev
 # Opens on http://localhost:3000/digital-seafood/ (due to base: '/digital-seafood/')
 ```
 
-### Build & Deploy to GitHub Pages
+### Build & Git Workflow (Commit Only — Push Requires User Approval)
+> [!IMPORTANT]
+> **Git Policy**: Always commit changes locally first, and **wait for explicit user approval before running `git push` or `npm run deploy`**.
+
 ```bash
 npm run build        # Verify production bundle into dist/
-npm run deploy       # Runs predeploy (npm run build) then pushes dist/ to gh-pages branch
 git add .
 git commit -m "feat: describe your change"
-git push origin main
+
+# Run ONLY when the user explicitly approves pushing/deploying:
+# git push origin main
+# npm run deploy     # Runs predeploy (npm run build) then pushes dist/ to gh-pages branch
 ```
 
 > [!NOTE]
@@ -104,8 +109,9 @@ git push origin main
 ## 5. Chronological Changelog
 
 ### 2026-11-25
+- **Added Project Rules (`AGENTS.md`)**: Enforced commit-only policy (never run `git push` or `npm run deploy` without explicit user approval) alongside core UI constraints.
+- `e203965` — **Added Development Log**: Created `DEVELOPMENT_LOG.md` to document architecture, design rules, state keys, and deploy workflows.
 - **Workspace & Git Cleanup**: Unstaged accidentally staged `node_modules/`, `dist/`, `.idea/`, and `.DS_Store` files after folder relocation to `/Users/vanthiev/Documents/website/collaborate_ai`, restored `.gitignore`, fast-forwarded local `main` to `origin/main` (`4b4e176`), reinstalled `gh-pages`, and verified `npm run build`.
-- **Added Development Log**: Created `DEVELOPMENT_LOG.md` to document architecture, design rules, state keys, and deploy workflows.
 
 ### 2026-11-24
 - `4b4e176` — **fix: use raw github url for reliable instant og:image thumbnail**: Pointed `og:image` and `twitter:image` in `index.html` to `raw.githubusercontent.com/.../public/og-preview.jpg` for instant social link previews.
