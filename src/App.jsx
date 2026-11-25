@@ -46,7 +46,7 @@ function MenuContent() {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''} bg-[#f4f4f5] dark:bg-[#141416] text-[#09090b] dark:text-[#f8fafc] flex flex-col pb-28 w-full transition-colors duration-150`}>
+    <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''} bg-[#f4f4f5] dark:bg-[#141416] text-[#09090b] dark:text-[#f8fafc] flex flex-col pb-28 sm:pb-32 w-full transition-colors duration-150`}>
       
       {/* 1. Top Navbar (Sticky at Top) */}
       <Navbar />

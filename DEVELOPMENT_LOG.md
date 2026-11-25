@@ -112,6 +112,8 @@ git commit -m "feat: describe your change"
 ## 5. Chronological Changelog
 
 ### 2026-11-25
+- **Floating Rounded Bottom Selection Dock (`T-05`)**:
+  - `src/components/SelectionSheet.jsx` & `src/App.jsx`: Redesigned the bottom bar from a flat edge-to-edge strip into a floating rounded dock (`fixed bottom-3 left-3 right-3 sm:bottom-4 sm:left-6 sm:right-6 lg:left-10 lg:right-10 z-40 rounded-2xl`), unified the left expand/collapse summary trigger with an inline `ChevronUp`/`ChevronDown` chip, styled the orange-tinted icon tile + ring-cutout count pill (`bg-[#ea580c] border-2 border-white dark:border-[#1e1e24]`), refined 2-line USD/KHR typography for 360px–390px phones in `km`/`en`, polished the right CTA pill, and adjusted `App.jsx` bottom clearance to `pb-28 sm:pb-32`.
 - **Polished "Add Item to Selection" Flow (`T-01` – `T-04`)**:
   - `src/context/SelectionContext.jsx` & `src/App.jsx` (`T-01`): Fixed in-place quantity mutation inside `addItem` with immutable updates safe under `<React.StrictMode>`, replaced `.substr(2, 4)` with `.slice(2, 6)`, and passed `key={activeItemModal.id}` to `<ItemDetailModal />`.
   - `src/components/ItemDetailModal.jsx` (`T-02`): Fixed mobile modal flex layout (`overflow-hidden max-h-[90vh] flex flex-col`, `flex-shrink-0` header & footer, `flex-1 overflow-y-auto min-h-0` form body), added `onError` image fallback, stacked narrow-screen dual-currency pricing in the Add button, backdrop/`Escape` closing, and removed dead `animate-in`/`fade-in`/`zoom-in-95` classes while keeping solid Dark/Light colors.

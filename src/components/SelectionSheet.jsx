@@ -49,60 +49,49 @@ export default function SelectionSheet({ onOpenShowOrder }) {
 
   return (
     <>
-      {/* Floating Bottom Bar (Full Width Sticky) */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 p-3 sm:p-4 bg-white dark:bg-[#141416] border-t border-zinc-200 dark:border-[#373742] shadow-2xl w-full transition-colors duration-150">
-        <div className="w-full px-1 sm:px-6 lg:px-10 flex items-center justify-between gap-2 sm:gap-3">
+      {/* Floating Rounded Dock Bar */}
+      <div className="fixed bottom-3 left-3 right-3 sm:bottom-4 sm:left-6 sm:right-6 lg:left-10 lg:right-10 z-40 rounded-2xl bg-white dark:bg-[#1e1e24] border border-zinc-200 dark:border-[#373742] shadow-2xl p-2 pl-2.5 sm:p-2.5 sm:pl-3.5 transition-colors duration-150">
+        <div className="w-full flex items-center justify-between gap-2 sm:gap-3">
 
-          {/* Left: Item Count & Total Info */}
+          {/* Left: Unified Expand/Collapse Summary Trigger */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
-            className="flex items-center space-x-2.5 sm:space-x-3 text-left min-w-0 flex-1 focus:outline-none"
+            aria-label={isOpen ? t.collapseSelection : t.expandSelection}
+            className="flex items-center gap-2.5 sm:gap-3 text-left min-w-0 flex-1 focus:outline-none"
           >
-            <div className="relative w-11 h-11 rounded-lg bg-[#ea580c] flex items-center justify-center text-white flex-shrink-0 shadow-sm">
+            <div className="relative w-11 h-11 rounded-xl bg-orange-50 dark:bg-[#272730] border border-orange-200 dark:border-[#373742] flex items-center justify-center text-[#ea580c] flex-shrink-0">
               <ShoppingBag className="w-5 h-5" />
-              <span className="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-zinc-900 text-white dark:bg-white dark:text-[#141416] text-[11px] font-extrabold flex items-center justify-center shadow">
+              <span className="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-[#ea580c] text-white border-2 border-white dark:border-[#1e1e24] text-[11px] font-bold flex items-center justify-center">
                 {totalItemCount}
               </span>
             </div>
-            <div className="min-w-0">
-              <div className="text-[11px] text-zinc-500 dark:text-[#a1a1aa] font-medium truncate">
-                {totalItemCount} {t.dishesSelected}
-              </div>
-              <div className="flex flex-wrap items-baseline gap-x-1.5">
-                <span className="text-sm sm:text-lg font-bold text-zinc-900 dark:text-white font-mono">
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center flex-wrap gap-x-1.5 gap-y-0.5">
+                <span className="text-base sm:text-lg font-extrabold text-zinc-900 dark:text-white font-mono leading-tight">
                   {formatUsd(totalUsd)}
                 </span>
-                <span className="text-[11px] sm:text-xs font-semibold text-[#c2410c] dark:text-[#d97706] font-mono">
-                  ≈ {formatKhr(totalKhr)}
+                <span className="text-[11px] font-semibold text-zinc-500 dark:text-[#a1a1aa] bg-zinc-100 dark:bg-[#272730] px-1.5 py-0.5 rounded-md inline-flex items-center gap-0.5 whitespace-nowrap">
+                  <span>{totalItemCount} {t.dishesUnit}</span>
+                  {isOpen ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronUp className="w-3.5 h-3.5" />}
                 </span>
+              </div>
+              <div className="text-xs font-semibold text-[#c2410c] dark:text-[#d97706] font-mono leading-tight mt-0.5 truncate">
+                ≈ {formatKhr(totalKhr)}
               </div>
             </div>
           </button>
 
-          {/* Right Action: Expand Drawer & Show Waiter List */}
-          <div className="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
-            <button
-              type="button"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label={isOpen ? t.collapseSelection : t.expandSelection}
-              aria-expanded={isOpen}
-              title={isOpen ? t.collapseSelection : t.expandSelection}
-              className="p-2.5 rounded-lg bg-zinc-100 dark:bg-[#1e1e24] border border-zinc-300 dark:border-[#373742] text-zinc-800 dark:text-white hover:border-[#ea580c] transition-colors"
-            >
-              {isOpen ? <ChevronDown className="w-5 h-5" /> : <ChevronUp className="w-5 h-5" />}
-            </button>
-
-            <button
-              type="button"
-              onClick={onOpenShowOrder}
-              className="flex items-center space-x-1.5 px-3 sm:px-4 py-2.5 rounded-lg bg-[#ea580c] hover:bg-[#c2410c] text-white text-xs sm:text-sm font-bold shadow transition-colors active:scale-95 whitespace-nowrap"
-            >
-              <Eye className="w-4 h-4 flex-shrink-0" />
-              <span>{t.viewSelection}</span>
-            </button>
-          </div>
+          {/* Right Action: Show Waiter List CTA */}
+          <button
+            type="button"
+            onClick={onOpenShowOrder}
+            className="rounded-xl bg-[#ea580c] hover:bg-[#c2410c] px-3.5 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm font-bold text-white flex items-center gap-1.5 sm:gap-2 shadow-sm flex-shrink-0 whitespace-nowrap transition-colors active:scale-95"
+          >
+            <Eye className="w-4 h-4 flex-shrink-0" />
+            <span>{t.viewSelection}</span>
+          </button>
 
         </div>
       </div>
