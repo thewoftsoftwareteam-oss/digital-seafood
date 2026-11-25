@@ -20,6 +20,7 @@ _No active feature tasks queued yet. Ask `coordinator` to create and assign task
 
 | ID | Title | Assignee | Reviewer | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| `T-06` | Hide fullscreen toggle button in mobile view (`Navbar.jsx`) | `developer` | `reviewer` | `DONE` | Changed fullscreen toggle in `src/components/Navbar.jsx` to `hidden sm:flex` (shown only on `sm+` tablet/desktop) and added `type="button"` + `aria-label` on navbar controls. |
 | `T-05` | Redesign sticky bottom selection bar as floating rounded dock (`SelectionSheet.jsx` & `App.jsx`) | `developer` | `reviewer` | `DONE` | Floating rounded dock (`bottom-3 left-3 right-3`, `rounded-2xl`), unified expand/collapse left trigger with inline chevron chip, refined icon tile + ring-cutout count pill, 2-line responsive USD/KHR typography, polished CTA pill, and `pb-28 sm:pb-32` clearance in `App.jsx`. `[APPROVED]` by `reviewer`. |
 | `T-01` | Fix `SelectionContext` immutable updates, `.slice`, and `ItemDetailModal` key | `developer` | `reviewer` | `DONE` | Immutable `addItem` update (`SelectionContext.jsx`), `.slice(2, 6)`, and `key={activeItemModal.id}` on `<ItemDetailModal />` (`App.jsx`). `[APPROVED]` by `reviewer`. |
 | `T-02` | Fix `ItemDetailModal` mobile layout, fallback image, accessibility & solid styling | `developer` | `reviewer` | `DONE` | Pinned `flex-shrink-0` header/footer, scrollable `flex-1 overflow-y-auto min-h-0` body, `onError` image fallback, 360px-safe footer, backdrop & `Escape` close, solid Dark/Light styling. `[APPROVED]` by `reviewer`. |

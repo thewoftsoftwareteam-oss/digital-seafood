@@ -55,7 +55,9 @@ export default function Navbar() {
           
           {/* Theme Switcher (Dark / Light) with locked square size */}
           <button
+            type="button"
             onClick={toggleTheme}
+            aria-label={theme === 'dark' ? (lang === 'km' ? 'ប្តូរទៅ Light Mode' : 'Switch to Light Mode') : (lang === 'km' ? 'ប្តូរទៅ Dark Mode' : 'Switch to Dark Mode')}
             className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-lg bg-zinc-100 dark:bg-[#1e1e24] border border-zinc-300 dark:border-[#373742] text-zinc-700 dark:text-[#d4d4d8] hover:text-[#ea580c] dark:hover:text-[#ea580c] hover:border-[#ea580c] transition-colors flex-shrink-0"
             title={theme === 'dark' ? (lang === 'km' ? 'ប្តូរទៅ Light Mode' : 'Switch to Light Mode') : (lang === 'km' ? 'ប្តូរទៅ Dark Mode' : 'Switch to Dark Mode')}
           >
@@ -68,6 +70,7 @@ export default function Navbar() {
 
           {/* Language Switcher with locked height and width */}
           <button
+            type="button"
             onClick={toggleLanguage}
             className="h-8 sm:h-9 px-2.5 sm:px-3 flex items-center justify-center gap-1.5 rounded-lg bg-zinc-100 dark:bg-[#1e1e24] border border-zinc-300 dark:border-[#373742] text-xs font-semibold text-zinc-800 dark:text-white hover:border-[#ea580c] transition-colors whitespace-nowrap min-w-[78px] sm:min-w-[88px]"
             title="Toggle Language (ភាសាខ្មែរ / English)"
@@ -76,10 +79,12 @@ export default function Navbar() {
             <span className="leading-none">{lang === 'km' ? 'English' : 'ខ្មែរ'}</span>
           </button>
 
-          {/* Fullscreen Toggle Button with locked square size */}
+          {/* Fullscreen Toggle Button (Hidden on mobile view; shown on tablet/desktop sm+) */}
           <button
+            type="button"
             onClick={toggleFullscreen}
-            className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-lg bg-zinc-100 dark:bg-[#1e1e24] border border-zinc-300 dark:border-[#373742] text-zinc-700 dark:text-[#d4d4d8] hover:text-[#ea580c] dark:hover:text-white hover:border-[#ea580c] transition-colors flex-shrink-0"
+            aria-label={isFullscreen ? (lang === 'km' ? 'បិទ Fullscreen' : 'Exit Fullscreen') : (lang === 'km' ? 'បើក Fullscreen' : 'Enable Fullscreen')}
+            className="hidden sm:flex w-8 h-8 sm:w-9 sm:h-9 items-center justify-center rounded-lg bg-zinc-100 dark:bg-[#1e1e24] border border-zinc-300 dark:border-[#373742] text-zinc-700 dark:text-[#d4d4d8] hover:text-[#ea580c] dark:hover:text-white hover:border-[#ea580c] transition-colors flex-shrink-0"
             title={isFullscreen ? (lang === 'km' ? 'បិទ Fullscreen' : 'Exit Fullscreen') : (lang === 'km' ? 'បើក Fullscreen' : 'Enable Fullscreen')}
           >
             {isFullscreen ? <Minimize className="w-4 h-4 text-[#ea580c]" /> : <Maximize className="w-4 h-4" />}
