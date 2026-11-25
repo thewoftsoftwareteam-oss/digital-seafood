@@ -47,7 +47,23 @@ export const UI_TRANSLATIONS = {
     confirmCall: 'បញ្ជាក់ការហៅអ្នករត់តុ',
     cancel: 'ថយក្រោយ',
     popularBadge: 'លក់ដាច់',
-    grillBadge: 'អាំងធ្យូង'
+    grillBadge: 'អាំងធ្យូង',
+    dishesSelected: 'មុខម្ហូបបានរើស',
+    viewSelection: 'មើលបញ្ជីមុខម្ហូប',
+    showSelectionToWaiter: 'បង្ហាញបញ្ជីមុខម្ហូបទៅកាន់អ្នករត់តុ',
+    expandSelection: 'បើកមើលបញ្ជីមុខម្ហូប',
+    collapseSelection: 'បិទបញ្ជីមុខម្ហូប',
+    noteLabel: 'ចំណាំ',
+    selectedDishesSheet: 'បញ្ជីមុខម្ហូបដែលបានរើស',
+    waiterOrderInstruction: 'បង្ហាញអេក្រង់នេះទៅកាន់អ្នករត់តុ ដើម្បីកត់ត្រាយកម្ហូបរបស់អ្នក',
+    totalItems: 'ចំនួនមុខម្ហូបសរុប',
+    dishesUnit: 'មុខ',
+    estimatedTotal: 'តម្លៃប៉ាន់ស្មាន',
+    decreaseQuantity: 'បន្ថយចំនួន',
+    increaseQuantity: 'បន្ថែមចំនួន',
+    removeItem: 'លុបមុខម្ហូប',
+    inList: 'ក្នុងបញ្ជី',
+    selectDish: 'រើសម្ហូប'
   },
   en: {
     restaurantName: 'Natural Charcoal Seafood',
@@ -93,7 +109,23 @@ export const UI_TRANSLATIONS = {
     confirmCall: 'Confirm Call Waiter',
     cancel: 'Cancel',
     popularBadge: 'Popular',
-    grillBadge: 'Charcoal Grilled'
+    grillBadge: 'Charcoal Grilled',
+    dishesSelected: 'dishes selected',
+    viewSelection: 'View Selection',
+    showSelectionToWaiter: 'Show Selection to Waiter',
+    expandSelection: 'Expand selection',
+    collapseSelection: 'Collapse selection',
+    noteLabel: 'Note',
+    selectedDishesSheet: 'Selected Dishes Sheet',
+    waiterOrderInstruction: 'Show this screen directly to the waiter to record your order',
+    totalItems: 'Total Items',
+    dishesUnit: 'dishes',
+    estimatedTotal: 'Estimated Total',
+    decreaseQuantity: 'Decrease quantity',
+    increaseQuantity: 'Increase quantity',
+    removeItem: 'Remove item',
+    inList: 'in list',
+    selectDish: 'Add'
   }
 };
 

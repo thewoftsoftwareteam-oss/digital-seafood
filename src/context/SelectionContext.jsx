@@ -41,9 +41,11 @@ export function SelectionProvider({ children }) {
    * Adds or updates a dish in the selection list
    */
   const addItem = ({ item, quantity = 1, selectedSpicy = '', selectedCooking = '', selectedSauce = '', specialNotes = '' }) => {
+    const normalizedQty = Math.max(1, Math.floor(Number(quantity) || 1));
+
     setSelectedItems(prev => {
       // Find if an identical customization already exists
-      const existingIndex = prev.findIndex(entry => 
+      const existingIndex = prev.findIndex(entry =>
         entry.item.id === item.id &&
         entry.selectedSpicy === selectedSpicy &&
         entry.selectedCooking === selectedCooking &&
@@ -53,14 +55,17 @@ export function SelectionProvider({ children }) {
 
       if (existingIndex > -1) {
         const updated = [...prev];
-        updated[existingIndex].quantity += quantity;
+        updated[existingIndex] = {
+          ...updated[existingIndex],
+          quantity: updated[existingIndex].quantity + normalizedQty
+        };
         return updated;
       }
 
       const newEntry = {
-        selectionId: `${item.id}-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`,
+        selectionId: `${item.id}-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
         item,
-        quantity,
+        quantity: normalizedQty,
         selectedSpicy,
         selectedCooking,
         selectedSauce,

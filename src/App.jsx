@@ -121,6 +121,7 @@ function MenuContent() {
       {/* Modal: Customize & Add Item */}
       {activeItemModal && (
         <ItemDetailModal
+          key={activeItemModal.id}
           item={activeItemModal}
           onClose={() => setActiveItemModal(null)}
         />

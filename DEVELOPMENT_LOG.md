@@ -112,6 +112,11 @@ git commit -m "feat: describe your change"
 ## 5. Chronological Changelog
 
 ### 2026-11-25
+- **Polished "Add Item to Selection" Flow (`T-01` – `T-04`)**:
+  - `src/context/SelectionContext.jsx` & `src/App.jsx` (`T-01`): Fixed in-place quantity mutation inside `addItem` with immutable updates safe under `<React.StrictMode>`, replaced `.substr(2, 4)` with `.slice(2, 6)`, and passed `key={activeItemModal.id}` to `<ItemDetailModal />`.
+  - `src/components/ItemDetailModal.jsx` (`T-02`): Fixed mobile modal flex layout (`overflow-hidden max-h-[90vh] flex flex-col`, `flex-shrink-0` header & footer, `flex-1 overflow-y-auto min-h-0` form body), added `onError` image fallback, stacked narrow-screen dual-currency pricing in the Add button, backdrop/`Escape` closing, and removed dead `animate-in`/`fade-in`/`zoom-in-95` classes while keeping solid Dark/Light colors.
+  - `src/components/SelectionSheet.jsx`, `src/components/CallWaiterModal.jsx`, `src/context/LanguageContext.jsx` (`T-03`): Fixed Dark Mode counter badge contrast (`dark:bg-white dark:text-[#141416]`), localized all selection drawer and waiter sheet strings into `UI_TRANSLATIONS` (`km`/`en`), raised the expanded drawer to `z-50`, added backdrop/`Escape` close and automatic `isOpen` reset when selection empties/clears, added empty-selection guard and dual-currency per-row pricing in `CallWaiterModal.jsx`.
+  - `src/components/MenuCard.jsx` (`T-04`): Replaced dead `hidden xs:block` with `hidden sm:line-clamp-2` and made the entire card clickable with keyboard support and zero nested interactive controls.
 - **Created 3-Agent Team (`coordinator`, `developer`, `reviewer`)**: Added `agents/README.md`, `agents/coordinator.md`, `agents/developer.md`, `agents/reviewer.md`, and `TASKS.md`, registered live session subagents with `EnableWriteTools: true` and `EnableSubagentTools: true` for cross-agent task passing, and documented team setup in `AGENTS.md`.
 - `10fbb63` — **Added Project Rules (`AGENTS.md`)**: Enforced commit-only policy (never run `git push` or `npm run deploy` without explicit user approval) alongside core UI constraints.
 - `e203965` — **Added Development Log**: Created `DEVELOPMENT_LOG.md` to document architecture, design rules, state keys, and deploy workflows.
