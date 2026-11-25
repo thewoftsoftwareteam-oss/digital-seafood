@@ -58,6 +58,9 @@ Living project reference and chronological development log to make future update
   - Active customer UI: `Navbar.jsx`, `CategoryFilter.jsx`, `SearchBar.jsx`, `MenuCard.jsx`, `ItemDetailModal.jsx`, `SelectionSheet.jsx`, `CallWaiterModal.jsx`.
   - Manager-only (`?admin=1` in `App.jsx`): `QrCodeManagerModal.jsx`.
   - Dormant / kept for future use (not mounted in `App.jsx`, dark-styled only): `CurrencySettingsModal.jsx`, `TableModal.jsx`.
+- `AGENTS.md` — Project rules (commit-only Git policy, multi-agent workflow, no-gradient UI constraints).
+- `TASKS.md` — Live shared task board (`TODO` -> `IN_PROGRESS` -> `IN_REVIEW` -> `APPROVED` -> `DONE`).
+- `agents/` — Team subagent definitions with inter-agent pass permissions (`README.md`, `coordinator.md`, `developer.md`, `reviewer.md`).
 - `.agents/skills/digital-menu-app/SKILL.md` — Reusable Antigravity skill blueprint.
 
 ### `localStorage` Keys
@@ -109,7 +112,8 @@ git commit -m "feat: describe your change"
 ## 5. Chronological Changelog
 
 ### 2026-11-25
-- **Added Project Rules (`AGENTS.md`)**: Enforced commit-only policy (never run `git push` or `npm run deploy` without explicit user approval) alongside core UI constraints.
+- **Created 3-Agent Team (`coordinator`, `developer`, `reviewer`)**: Added `agents/README.md`, `agents/coordinator.md`, `agents/developer.md`, `agents/reviewer.md`, and `TASKS.md`, registered live session subagents with `EnableWriteTools: true` and `EnableSubagentTools: true` for cross-agent task passing, and documented team setup in `AGENTS.md`.
+- `10fbb63` — **Added Project Rules (`AGENTS.md`)**: Enforced commit-only policy (never run `git push` or `npm run deploy` without explicit user approval) alongside core UI constraints.
 - `e203965` — **Added Development Log**: Created `DEVELOPMENT_LOG.md` to document architecture, design rules, state keys, and deploy workflows.
 - **Workspace & Git Cleanup**: Unstaged accidentally staged `node_modules/`, `dist/`, `.idea/`, and `.DS_Store` files after folder relocation to `/Users/vanthiev/Documents/website/collaborate_ai`, restored `.gitignore`, fast-forwarded local `main` to `origin/main` (`4b4e176`), reinstalled `gh-pages`, and verified `npm run build`.
 
